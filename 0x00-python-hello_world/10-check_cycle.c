@@ -22,8 +22,9 @@ int check_cycle(listint_t *list)
 			return (0);
 		ptr2 = ptr2->next->next;
 		ptr1 = ptr1->next;
-		if (ptr2 == slow)
+		if (ptr2 == ptr1)
 			return (1);
 	}
 	return (0);
 }
+
