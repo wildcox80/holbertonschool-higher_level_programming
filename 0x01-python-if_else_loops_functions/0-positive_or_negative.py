@@ -4,7 +4,7 @@ number = random.randint(-10, 10)
 if number > 0:
     num = "is positive"
 elif number == 0:
-    num = "is nero"
+    num = "is zero"
 else:
     num = "is negative"
 print("{:d} {:s}".format(number, num))
