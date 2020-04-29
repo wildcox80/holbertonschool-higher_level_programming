@@ -7,5 +7,4 @@ elif number == 0:
     num = "is nero"
 else:
     num = "is negative"
-
 print("{:d} {:s}".format(number, num))
