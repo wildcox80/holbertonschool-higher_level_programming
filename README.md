@@ -22,4 +22,4 @@ git clone https://github.com/wildcox80/holbertonschool-higher_level_programming.
 ```
 
 ## Authors 
-**Wilder Rincon** [Github](https://github.com/wildcox80]
+**Wilder Rincon** [Github](https://github.com/wildcox80])
