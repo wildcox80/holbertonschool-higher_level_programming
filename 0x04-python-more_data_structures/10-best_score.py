@@ -1,8 +1,3 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    if a_dictionary is None or a_dictionary == {}:
-        return
-    best = []
-    for new in a_dictionary:
-        best.append(new)
-    return max(best)
+    return (max(a_dictionary, key = a_dictionary.get) if a_dictionary else None)
