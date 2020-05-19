@@ -3,11 +3,8 @@
 
 
 class Square:
-    """ Square class with validate private instance """
+    """Creates  Square type"""
     def __init__(self, size):
-        """
-        Arguments:
-            size: size of square
-        """
+        """Initialize size of square"""
         size = 0
         self.size = size
