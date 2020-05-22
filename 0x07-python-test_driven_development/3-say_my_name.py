@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    3-say_.py: functions add two integers
+    3-say_my_name.py: print first_name + last_name
     first_name is str
     last_name is str
 """
