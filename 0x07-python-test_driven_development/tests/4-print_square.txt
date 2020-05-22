@@ -4,33 +4,16 @@
 ##
 ##
 
->>> print_square(10)
-###############
-###############
-###############
-###############
-###############
-###############
-###############
-###############
-###############
-###############
-
-
->>> print_square(-1)
-Traceback (most recent call last):
-ValueError: size must be >= 0
-
->>> print_square(15.2)
+>>> print_square(40.2)
 Traceback (most recent call last):
 TypeError: size must be an integer
 
 >>> print_square(0)
 
->>> print_square("holberton school")
+>>> print_square("holberton")
 Traceback (most recent call last):
 TypeError: size must be an integer
 
->>> print_square(-3.7)
+>>> print_square(-4.2)
 Traceback (most recent call last):
 TypeError: size must be an integer
