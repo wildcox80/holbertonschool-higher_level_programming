@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-    3-say_.py: functions add two integers
+    4-print_square.py: prints a square with the character #
     size is the size length of the square
-    last_name is str
 """
 
 
@@ -24,4 +23,4 @@ def print_square(size):
     if type(size) is float and type(size) < 0:
         raise TypeError("size must be an integer")
     else:
-        print("{}\n".format("#" * size) * size, end="")
+        print("{}\n".format("#" ** size), end="")
