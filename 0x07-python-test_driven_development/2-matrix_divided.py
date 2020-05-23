@@ -7,22 +7,7 @@
 
 
 def matrix_divided(matrix, div):
-    """Divide elements in a matrix
-
-    Arguments:
-        matrix {[list]} -- [list a lists of integers / floats]
-        div {[divide]} -- [math operation div in elements in matrix]
-
-    Raises:
-        TypeError: [matrix must be a matrix (list of lists) of integers/floats]
-        TypeError: [Each row of the matrix must have the same size]
-        TypeError: [matrix must be a matrix (list of lists) of integers/floats]
-        TypeError: [div must be a number]
-        ZeroDivisionError: [division by zero]
-
-    Returns:
-        [division] -- [division all elements in matrix]
-    """
+    """Divide elements in a matrix"""
     if type(matrix) is not list:
         raise TypeError("matrix must be a matrix is [[]] of integers/floats")
 
