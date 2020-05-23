@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
     0-add_integer.py: functions add two integers
     a is a integer or float
     b is a integer or float
@@ -7,8 +7,8 @@
 
 
 def add_integer(a, b=98):
-    """ 
-        Return add two integers 
+    """
+        Return add two integers
     """
 
     if type(a) is not int and type(a) is not float:
