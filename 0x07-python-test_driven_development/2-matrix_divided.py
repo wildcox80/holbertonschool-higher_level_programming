@@ -5,6 +5,8 @@
     element is column in matrix
 """
 
+new_matrix = []
+
 
 def matrix_divided(matrix, div):
     """Divide elements in a matrix"""
@@ -29,5 +31,4 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
     return [list(map(lambda x: round(x / div, 2), row)) for row in matrix]
-    new_matrix = [[]]
     print(new_matrix)
