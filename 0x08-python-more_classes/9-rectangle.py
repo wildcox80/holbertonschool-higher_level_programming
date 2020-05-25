@@ -25,7 +25,7 @@ class Rectangle:
 
         self.__width = width
         self.__height = height
-        Rectangle.number_of_instances += 1
+        self.number_of_instances += 1
 
     def __str__(self):
         """Returns a string of Rectangle instance using # or empty string"""
@@ -50,8 +50,7 @@ class Rectangle:
         """
             Print 'Bye rectangle ...' when the instances is deleted
         """
-        if Rectangle.number_of_instances > 0:
-            Rectangle.number_of_instances -= 1
+        self.number_of_instances -= 1
         print('Bye rectangle...')
 
     @property
@@ -113,10 +112,13 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """
-            Returns new Rectangle instance with width == height == size
-            Parameters:
-            size: height and width of new instance
+        """Square
+            
+            Keyword Arguments:
+            size {int} -- size of the square (default: {0})
+            
+            Returns:
+            class -- Return a class
         """
 
-        return Rectangle(size, size)
+        return cls(size, size)
