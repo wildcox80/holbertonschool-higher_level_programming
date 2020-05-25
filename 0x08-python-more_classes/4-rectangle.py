@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 2-rectangle.py: Defines rectangle based on 2-rectangle.py
+""" 4-rectangle.py: Defines rectangle based on 2-rectangle.py
 """
 
 
