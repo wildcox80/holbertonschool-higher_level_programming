@@ -25,7 +25,7 @@ class Rectangle:
 
         self.__width = width
         self.__height = height
-        self.number_of_instances += 1
+        Rectangle.number_of_instances += 1
 
     def __str__(self):
         """Returns a string of Rectangle instance using # or empty string"""
@@ -50,7 +50,8 @@ class Rectangle:
         """
             Print 'Bye rectangle ...' when the instances is deleted
         """
-        self.number_of_instances -= 1
+        if Rectangle.number_of_instances > 0:
+            Rectangle.number_of_instances -= 1
         print('Bye rectangle...')
 
     @property
