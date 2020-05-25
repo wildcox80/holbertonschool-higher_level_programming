@@ -4,7 +4,7 @@
 """
 
 
-class Rectangle():
+class Rectangle:
     """
         Define class Rectangle
     """
