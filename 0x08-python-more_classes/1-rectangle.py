@@ -4,13 +4,15 @@
 
 
 class Rectangle:
-    """Creates  rectangle type"""
+    """ Define Class with validated private instance
+        attributes width and height
+    """
 
     def __init__(self, width=0, height=0):
         """Initializes rectangle size"""
 
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
