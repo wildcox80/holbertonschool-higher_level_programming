@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-""" 2-rectangle.py: Defines rectangle based on 2-rectangle.py
+""" 3-rectangle.py: Defines rectangle based on 2-rectangle.py
 """
 
 
 class Rectangle:
-    """Creates  rectangle type"""
+    """ Define Class with validated private instance
+        attributes width and height
+    """
 
     def __init__(self, width=0, height=0):
         """Initializes rectangle size"""
