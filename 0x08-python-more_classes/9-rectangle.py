@@ -32,10 +32,10 @@ class Rectangle:
 
         if self.width == 0 or self.height == 0:
             return ""
-        x = "{}".format(self.print_symbol) * self.width
-        rect = x
-        for i in range(self.height - 1):
-            rect += "\n" + x
+        width = str(self.print_symbol) * self.width
+        rect = ""
+        for i in range(self.height):
+            rect += width + "\n" 
         return rect
 
     def __repr__(self):
