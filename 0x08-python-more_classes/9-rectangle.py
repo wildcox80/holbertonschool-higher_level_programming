@@ -61,14 +61,14 @@ class Rectangle:
     def area(self):
         """Return area of the rectangle"""
 
-        return (self.width * self.height)
+        return (self.__width * self.__height)
 
     def perimeter(self):
         """Return perimeter of the rectangle"""
-        if self.width and self.height == 0:
+        if self.__width and self.__height == 0:
             return 0
         else:
-            return ((self.width * 2) + (self.height * 2))
+            return ((self.__width * 2) + (self.__height * 2))
 
     def __str__(self):
         """Returns a string of Rectangle instance using # or empty string"""
