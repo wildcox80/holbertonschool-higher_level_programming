@@ -4,65 +4,22 @@
 
 
 class Rectangle:
-    """ Define Class with validated private instance
-        attributes width and height
-
-        Attributes:
-            number_of_instances: number of instances of rectangle
-            print_symbol: public class attribute
+    """[defines a rectangle]
     """
-
     number_of_instances = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """ Initializes rectangle size
-
-            Args:
-            width: width of rectangle
-            height: height of rectangle
-        """
-
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
-
-    def __str__(self):
-        """Returns a string of Rectangle instance using # or empty string"""
-
-        if self.width == 0 or self.height == 0:
-            return ""
-        x = "{}".format(self.print_symbol) * self.width
-        rect = x
-        for i in range(self.height - 1):
-            rect += "\n" + x
-        return rect
-
-    def __repr__(self):
-        """
-            Returns a string representation
-            able to create new instance
-        """
-
-        return "Rectangle({:d}, {:d})".format(self.width, self.height)
-
-    def __del__(self):
-        """
-            Print 'Bye rectangle ...' when the instances is deleted
-        """
-        if Rectangle.number_of_instances > 0:
-            Rectangle.number_of_instances -= 1
-        print('Bye rectangle...')
 
     @property
     def width(self):
-        """Defines width of the rectangle and returns its value"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Defines the value of width of rectangle and checks if >= 0"""
-
         if type(value) is not int:
             raise TypeError('width must be an integer')
         if value < 0:
@@ -71,14 +28,10 @@ class Rectangle:
 
     @property
     def height(self):
-        """Defines height of the rectangle and returns its value"""
-
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Defines the value of height of rectangle and checks if >= 0"""
-
         if type(value) is not int:
             raise TypeError('height must be an integer')
         if value < 0:
@@ -86,37 +39,40 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Return area of the rectangle"""
-
-        return self.width * self.height
+        return (self.__height * self.__width)
 
     def perimeter(self):
-        """Return perimeter of the rectangle"""
-        if self.width and self.height == 0:
+        if self.__height == 0 or self.__width == 0:
             return 0
-        return (self.width + self.height) * 2
+        else:
+            return ((self.__height * 2) + (self.__width * 2))
 
-    @staticmethod
+    def __str__(self):
+        if self.width == 0 or self.height == 0:
+            return ("")
+        width = str(self.print_symbol) * self.width
+        Toprint = ""
+        for i in range(self.height):
+            Toprint += width + "\n"
+        return Toprint
+
+    def __repr__(self):
+        return ("Rectangle({}, {})".format(self.__width, self.__height))
+
+    def __del__(self):
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
+
     def bigger_or_equal(rect_1, rect_2):
-        """ Returns the bigger Rectangle or rect_1 if they are equal
-            Raises:
-            TypeError: if rect_1 or rect_2 is not a Rectangle
-        """
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError('rect_1 must be an instance of Rectangle')
 
-        if type(rect_1) is not Rectangle:
-            raise TypeError("rect_1 must be an instance of Rectangle")
-        if type(rect_2) is not Rectangle:
-            raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect_1.area() < rect_2.area():
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError('rect_1 must be an instance of Rectangle')
+        if rect_2.area() > rect_1.area():
             return rect_2
         return rect_1
 
     @classmethod
     def square(cls, size=0):
-        """
-            Returns new Rectangle instance with width == height == size
-            Parameters:
-            size: height and width of new instance
-        """
-
-        return Rectangle(size, size)
+        return cls(size, size)
