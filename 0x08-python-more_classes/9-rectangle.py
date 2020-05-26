@@ -27,32 +27,6 @@ class Rectangle:
         self.__height = height
         Rectangle.number_of_instances += 1
 
-    def __str__(self):
-        """Returns a string of Rectangle instance using # or empty string"""
-
-        if self.width == 0 or self.height == 0:
-            return ""
-        width = str(self.print_symbol) * self.width
-        rect = ""
-        for i in range(self.height):
-            rect += width + "\n"
-        return rect
-
-    def __repr__(self):
-        """
-            Returns a string representation
-            able to create new instance
-        """
-
-        return ("Rectangle({}, {})".format(self.__width, self.__height))
-
-    def __del__(self):
-        """
-            Print 'Bye rectangle ...' when the instances is deleted
-        """
-        Rectangle.number_of_instances -= 1
-        print('Bye rectangle...')
-
     @property
     def width(self):
         """Defines width of the rectangle and returns its value"""
@@ -87,13 +61,40 @@ class Rectangle:
     def area(self):
         """Return area of the rectangle"""
 
-        return self.width * self.height
+        return (self.width * self.height)
 
     def perimeter(self):
         """Return perimeter of the rectangle"""
         if self.width and self.height == 0:
             return 0
-        return (self.width + self.height) * 2
+        else:
+            return ((self.width * 2) + (self.height * 2))
+
+    def __str__(self):
+        """Returns a string of Rectangle instance using # or empty string"""
+
+        if self.width == 0 or self.height == 0:
+            return ""
+        width = str(self.print_symbol) * self.width
+        rect = ""
+        for i in range(self.height):
+            rect += width + "\n"
+        return rect
+
+    def __repr__(self):
+        """
+            Returns a string representation
+            able to create new instance
+        """
+
+        return ("Rectangle({}, {})".format(self.__width, self.__height))
+
+    def __del__(self):
+        """
+            Print 'Bye rectangle ...' when the instances is deleted
+        """
+        Rectangle.number_of_instances -= 1
+        print('Bye rectangle...')
 
     def bigger_or_equal(rect_1, rect_2):
         """ Returns the bigger Rectangle or rect_1 if they are equal
