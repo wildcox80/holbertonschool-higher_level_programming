@@ -44,14 +44,13 @@ class Rectangle:
             able to create new instance
         """
 
-        return "Rectangle({:d}, {:d})".format(self.width, self.height)
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
         """
             Print 'Bye rectangle ...' when the instances is deleted
         """
-        if Rectangle.number_of_instances > 0:
-            Rectangle.number_of_instances -= 1
+        Rectangle.number_of_instances -= 1
         print('Bye rectangle...')
 
     @property
@@ -107,7 +106,7 @@ class Rectangle:
 
         if not isinstance(rect_2, Rectangle):
             raise TypeError('rect_1 must be an instance of Rectangle')
-        
+
         if rect_2.area() > rect_1.area():
             return rect_2
         return rect_1
