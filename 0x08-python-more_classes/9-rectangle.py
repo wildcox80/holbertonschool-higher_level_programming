@@ -35,7 +35,7 @@ class Rectangle:
         width = str(self.print_symbol) * self.width
         rect = ""
         for i in range(self.height):
-            rect += width + "\n" 
+            rect += width + "\n"
         return rect
 
     def __repr__(self):
