@@ -25,7 +25,7 @@ class BaseGeometry():
             Check value input type correct
         """
 
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("{} must be a integer".format(name))
         elif value <= 0:
             raise ValueError("{} must be greather than 0".format(name))
