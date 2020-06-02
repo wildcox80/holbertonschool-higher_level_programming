@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    8-base_geometry: Write a class Rectangle that
+    8-rectangle: Write a class Rectangle that
     inherits from BaseGeometry
 """
 
