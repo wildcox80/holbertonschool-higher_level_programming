@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-    4-inherits_from.py: returns True if the object 
+    4-inherits_from.py: returns True if the object
     is an instance of a class that inherited
 """
+
 
 def inherits_from(obj, a_class):
     """
