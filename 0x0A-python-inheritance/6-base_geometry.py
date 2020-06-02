@@ -8,7 +8,7 @@
 
 class BaseGeometry:
     """
-        Define area function with raise message
+        Raises an Exception - method not implemented
     """
-    def area(self):
-        raise Exception("area() is no implemented")
+
+    raise Exception("area() is not implemented")
