@@ -6,23 +6,22 @@
 
 
 class BaseGeometry():
-    """
-        Inheritance class BaseGeometry for use def area
-    """
-
-    def __init__(self):
-        pass
-
-    """
-        Define area function with raise message
-    """
+    """ Class BaseGeometry """
 
     def area(self):
+        """Raises an Exception - method not implemented"""
+
         raise Exception("area() is no implemented")
 
     def integer_validator(self, name, value):
         """
-            Check value input type correct
+            Validates a given value is a positive int
+            Param:
+                name: name of variable to validate
+                value: value to validate
+            Raises:
+                TypeError: if value is not an int
+                ValueError: if value is negative
         """
 
         if type(value) is not int:
