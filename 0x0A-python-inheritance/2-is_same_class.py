@@ -6,6 +6,6 @@
 
 def is_same_class(obj, a_class):
     """
-        Check if instance is same
+        Check if obj is a instance is same
     """
     return issubclass(a_class, type(obj))
