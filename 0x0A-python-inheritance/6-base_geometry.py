@@ -6,7 +6,7 @@
 """
 
 
-class BaseGeometry():
+class BaseGeometry:
     """
         Define area function with raise message
     """
