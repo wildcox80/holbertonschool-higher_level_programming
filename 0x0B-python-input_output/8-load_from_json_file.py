@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" create a new funtions """
+""" 
+    8-load_from_json_file.py: creates an Object from a “JSON file”
+"""
 import json
 
 
