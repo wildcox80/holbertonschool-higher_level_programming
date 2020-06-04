@@ -4,15 +4,28 @@
 """
 
 
+def pascal_calculation(my_list):
+    ''' calculate numbers inside list '''
+    new_list = []
+    prev = 0
+    counter = 0
+
+    for i in my_list:
+        new_list.append(i + prev)
+        prev = i
+        counter += 1
+
+    # append last element
+    new_list.append(my_list[-1])
+
+    return new_list
+
 def pascal_triangle(n):
     if n <= 0:
         return []
 
     my_list = [[1]]
-    for counter in range(1, n):
-        row = [1]
-        for i in range(1, counter):
-            row.append(my_list[counter - 1][i - 1] + my_list[counter - 1][i])
-        row.append(1)
-        my_list.append(row)
+    for i in range(n - 1):
+        new_list = pascal_calculation(my_list[-1])
+        my_list.append(new_list)
     return my_list
