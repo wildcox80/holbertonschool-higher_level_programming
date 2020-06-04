@@ -20,12 +20,13 @@ def pascal_calculation(my_list):
 
     return new_list
 
+
 def pascal_triangle(n):
     if n <= 0:
         return []
 
-    my_list = [[1]]
+    matrix = [[1]]
     for i in range(n - 1):
-        new_list = pascal_calculation(my_list[-1])
-        my_list.append(new_list)
-    return my_list
+        new_list = pascal_calculation(matrix[-1])
+        matrix.append(new_list)
+    return matrix
