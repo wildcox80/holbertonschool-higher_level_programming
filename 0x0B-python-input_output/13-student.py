@@ -32,7 +32,7 @@ class Student:
     
     def reload_from_json(self, json):
         """ 
-            replaces all attributes of the Student instance
+            replaces all attributes of the Student
         """
         for key in json:
             try:
