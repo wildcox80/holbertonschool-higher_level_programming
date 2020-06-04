@@ -4,7 +4,7 @@
 """
 
 
-class Student(self):
+class Student:
     """
         Define class Student
     """
