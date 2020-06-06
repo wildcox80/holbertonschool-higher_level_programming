@@ -1,34 +1,36 @@
 #!/usr/bin/python3
 """
-    2-matrix_divide.py: divides all elements of a matrix
-    row is row in matrix
-    element is column in matrix
+    Create funtions for div matrix
+    @matrix and div must be integer numbers
+    Return: new matrix with result of div 
 """
-
-new_matrix = []
 
 
 def matrix_divided(matrix, div):
-    """Divide elements in a matrix"""
-    if type(matrix) is not list:
-        raise TypeError("matrix must be a matrix is [[]] of integers/floats")
+    """
+        funtin for div each elemt of matrix 
+    """
 
-    size = -1
-    for row in matrix:
-        if type(row) is list:
-            if size == -1:
-                size = len(row)
-            else:
-                if size != len(row):
-                    raise TypeError
-                ("Each row of the matrix must have the same size")
-            for element in row:
-                if type(element) is not int and type(element) is not float:
-                    raise TypeError
-                ("matrix must be a matrix [[]] of integers/floats")
-    if type(div) is not int and type(div) is not float:
+    new_mtrx = []
+
+    if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    return [list(map(lambda x: round(x / div, 2), row)) for row in matrix]
-    print(new_matrix)
+
+    if (matrix):
+        row_prev = len(matrix[0])
+        for i in range(0, len(matrix)):
+            new_mtrx.append([])
+            if row_prev != len(matrix[i]):
+                raise TypeError(
+                    "Each row of the matrix must have the same size")
+            for j in range(0, len(matrix[i])):
+                if not isinstance(matrix[i][j], (int, float)):
+                    raise TypeError(
+                        "matrix must be a matrix (list of lists) of integers/floats")
+                else:
+                    new_mtrx[i].append(round((matrix[i][j] / div), 2))
+
+            row_prev = len(matrix[i])
+        return new_mtrx

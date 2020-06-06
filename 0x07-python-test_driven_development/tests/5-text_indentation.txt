@@ -1,64 +1,106 @@
+# 5-text_indentation.txt
+
+===========================
+How to Use 5-text_indentation.py
+===========================
+
+This module defines  function that prints a text with 2 new lines 
+after each of these characters: ., ? and : ``def text_indentation(text)``.
+
+Usage
+=====
+
+``def text_indentation(...)``` returns text identate.
+---------------------
+
 >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("Hello?")
+    Hello?
+    <BLANKLINE>
 
->>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
-... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
-... Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
-... Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
-... rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
-... stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
-... cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
-... beatiorem! Iam ruinas videres.""")
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-<BLANKLINE>
-Quonam modo?
-<BLANKLINE>
-Utrum igitur tibi litteram videor an totas paginas commovere?
-<BLANKLINE>
-Non autem hoc:
-<BLANKLINE>
-igitur ne illud quidem.
-<BLANKLINE>
-Fortasse id optimum, sed ubi illud:
-<BLANKLINE>
-Plus semper voluptatis?
-<BLANKLINE>
-Teneo, inquit, finem illi videri nihil dolere.
-<BLANKLINE>
-Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
-<BLANKLINE>
-Si id dicis, vicimus.
-<BLANKLINE>
-Inde sermone vario sex illa a Dipylo stadia confecimus.
-<BLANKLINE>
-Sin aliud quid voles, postea.
-<BLANKLINE>
-Quae animi affectio suum cuique tribuens atque hanc, quam dico.
-<BLANKLINE>
-Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres.
-<BLANKLINE>
+    >>> text_indentation("Hello?: Holberton?? School?  ")
+    Hello?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    Holberton?
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    School?
+    <BLANKLINE>
 
->>> text_indentation(".?:")
-.
-<BLANKLINE>
-?
-<BLANKLINE>
-:
-<BLANKLINE>
 
->>> text_indentation(".     ")
-.
-<BLANKLINE>
+    >>> text_indentation("Hello?: Holberton?    Software. School? !  ")
+    Hello?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    Holberton?
+    <BLANKLINE>
+    Software.
+    <BLANKLINE>
+    School?
+    <BLANKLINE>
+    !  
 
->>> text_indentation("hello world")
-hello world
 
->>> text_indentation("          hello world")
-hello world
+    >>> text_indentation("hello:  " + ".wor?ld")
+    hello:
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    wor?
+    <BLANKLINE>
+    ld
 
->>> text_indentation("          hello world!                 ")
-hello world!
 
->>> text_indentation("          .                ")
-.
-<BLANKLINE>
+    >>> text_indentation("hello:  " + ".w.or?l:d" + str (34))
+    hello:
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    w.
+    <BLANKLINE>
+    or?
+    <BLANKLINE>
+    l:
+    <BLANKLINE>
+    d34
+
+    >>> text_indentation("hello:  " + ".wor?)?:fsa4?2")
+    hello:
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    wor?
+    <BLANKLINE>
+    )?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    fsa4?
+    <BLANKLINE>
+    2
+    
+Types of errors
+=====
+
+The function does not receive any numerical data (int, float)
+
+::
+    >>> text_indentation(44)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation(str(44.?))
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    >>> text_indentation(str(44.:holberton))
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
