@@ -1,18 +1,24 @@
 #!/usr/bin/python3
 """
-    0-add_integer.py: functions add two integers
-    a is a integer or float
-    b is a integer or float
+    function for add two number int
+    @a & @b: must be inter or float number
+    Return: add by a and b
 """
 
 
 def add_integer(a, b=98):
     """
-        Return add two integers
+        function for add number
     """
-
-    if type(a) is not int and type(a) is not float:
-        raise TypeError("a must be an integer")
-    if type(b) is not int and type(b) is not float:
-        raise TypeError("b must be an integer")
-    return int(a) + int(b)
+    if a and b:
+        if not isinstance(a, (int, float)):
+            raise TypeError("a must be an integer")
+        elif not isinstance(b, (int, float)):
+            raise TypeError("b must be an integer")
+        else:
+            if type(a) is float:
+                return int(a) + b
+            elif type(b) is float:
+                return a + int(b)
+            else:
+                return a + b
