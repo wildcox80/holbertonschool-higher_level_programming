@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# jose vallejo <1545@holbertonschool.com>
 """
     create funtion that print swuare in # 
     @size must be only int
