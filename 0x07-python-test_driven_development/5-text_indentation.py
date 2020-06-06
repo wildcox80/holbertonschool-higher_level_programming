@@ -1,26 +1,32 @@
 #!/usr/bin/python3
-"""
-    create funtion that print swuare in # 
-    @size must be only int
-    Return: only print scuare by size*size in #
+""" File name : 5-text_indentation.py
+    Text indentation :  function that prints a text with 2
+    new lines after each of these characters: ., ? and :
+    Prototype: def text_indentation(text)
 """
 
 
 def text_indentation(text):
-    """
-        function for split text givend
+    """function that prints a square with the character #
+    size: numbers the character # to print
+    Raises:
+        TypeError: size must be an integer
+        TypeError: size must be >= 0
     """
 
-    chr_match = ['.', '?', ':']
-    new_str = ""
-    if text:
-        if type(text) is str:
-            for i in text:
-                new_str = new_str + i
-                if i in chr_match:
-                    print(new_str.strip())
-                    print("")
-                    new_str = ""
-            print(new_str.strip(), end="")
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    phrase = ""
+    i = 0
+    while i < len(text):
+        if text[i] != "." and text[i] != "?" and text[i] != ":":
+            phrase += text[i]
         else:
-            raise TypeError("text must be a string")
+            phrase += text[i]
+            print(phrase)
+            print()
+            phrase = ""
+            while i < (len(text) - 1) and text[i+1] == " ":
+                i += 1
+        i += 1
+    print(phrase, end="")
