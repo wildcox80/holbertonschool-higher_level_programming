@@ -3,20 +3,13 @@
     square.py: Model class Square that inherits from Rectangle
     Wilder Rincon : 1588@holbertonschool.com
 """
-from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """Square class inherits from Rectangle"""
 
     def __init__(self, size, x=0, y=0, id=None):
-        """ Initiliaze method square
-
-        Args:
-            size ([int]): [size square]
-            x (int, optional): [x value]. Defaults to 0.
-            y (int, optional): [y value]. Defaults to 0.
-            id ([int], optional): [id value]. Defaults to None.
-        """
+        """Initialize private instance variables using super"""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
@@ -26,7 +19,11 @@ class Square(Rectangle):
 
     @property
     def size(self):
-        """ getter method for width """
+        """Property size: size of square
+        setter calls super properties to set width and height to size
+        Parameter:
+            value: value of size to set width and height
+        """
         return self.width
 
     @size.setter
@@ -34,22 +31,8 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def integer_validator(self, name, value):
-        """Validates a given value is a postive int
-        Parameters:
-            name: name of variable to validate
-            value: value to validate
-        """
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-        if (name == "width" or name == "height") and value <= 0:
-            raise ValueError("{} must be > 0".format(name))
-        if (name == "x" or name == "y") and value < 0:
-            raise ValueError("{} must be >= 0".format(name))
-
     def update(self, *args, **kwargs):
-        """ Method for update attributes size """
-
+        """Update no keyword arguments first, then keyword arguments"""
         if args and len(args) != 0:
             attrs = ["id", "size", "x", "y"]
             for i in range(len(args)):
@@ -57,14 +40,13 @@ class Square(Rectangle):
                     return
                 setattr(self, attrs[i], args[i])
         else:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def to_dictionary(self):
-        """ Return Dicitonary represent to square """
-
+        """Return dictionary representation of a Square"""
         my_dict = {}
-        attrs = ["id", "x", "size", "y"]
-        for i in attrs:
-            my_dict[i] = getattr(self, i)
+        attrs = ["id", "size", "x", "y"]
+        for a in attrs:
+            my_dict[a] = getattr(self, a)
         return my_dict
