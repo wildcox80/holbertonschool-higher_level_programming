@@ -34,6 +34,19 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def integer_validator(self, name, value):
+        """Validates a given value is a postive int
+        Parameters:
+            name: name of variable to validate
+            value: value to validate
+        """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if (name == "width" or name == "height") and value <= 0:
+            raise ValueError("{} must be > 0".format(name))
+        if (name == "x" or name == "y") and value < 0:
+            raise ValueError("{} must be >= 0".format(name))
+
     def update(self, *args, **kwargs):
         """ Method for update attributes size """
 
