@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ unit test for Rectangle.py file """
+import unittest
 import io
 import json
 import sys
-import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 
