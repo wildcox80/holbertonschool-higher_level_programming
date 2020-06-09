@@ -3,6 +3,8 @@
     1-base.py: Model class Base
     Wilder Rincon : 1588@holbertonschool.com
 """
+from random import random
+import json
 
 
 class Base:
@@ -23,3 +25,62 @@ class Base:
             Base.__nb_objects += 1
             self.id = id
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """ Method return JSON with list dictionaries """
+
+        if not list_dictionaries or len(list_dictionaries) == 0:
+            return '[]'
+        return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """ Writes JSON string representation of objects in list to file
+
+            Description:
+                Writes JSON string representation of objects
+                in list_objs to file <Class name>.json
+
+            Parameter:
+                list_objs: list of objects
+        """
+        write_list = []
+        filename = "{}.json".format(cls.__name__)
+        if list_objs is not None:
+            for obj in list_objs:
+                write_list.append(obj.to_dictionary())
+        write_list = Base.to_json_string(write_list)
+        with open(filename, mode='w', encoding='utf-8') as file:
+            file.write(write_list)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Return list of JSON representation"""
+        if not json_string:
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ Return instance with all attributes its seted """
+        if cls.__name__ == "Rectangle":
+            temp = cls(1, 1)
+        else:
+            temp = cls(1)
+        temp.update(**dictionary)
+        return temp
+
+    @classmethod
+    def load_from_file(cls):
+        """ Return list of instances from file
+            filename is <Class name>.json
+        """
+        try:
+            filename = "{}.json".format(cls.__name__)
+            with open(filename, 'r') as f:
+                objs = Base.from_json_string(f.read())
+                instances = [cls.create(**obj) for obj in objs]
+                return instances
+        except FileNotFoundError:
+            return []

@@ -28,9 +28,30 @@ class Square(Rectangle):
     def size(self):
         """ getter method for width """
         return self.width
-        
+
     @size.setter
     def size(self, value):
         self.width = value
-        self.height = value       
-        
+        self.height = value
+
+    def update(self, *args, **kwargs):
+        """ Method for update attributes size """
+
+        if args and len(args) != 0:
+            attrs = ["id", "size", "x", "y"]
+            for i in range(len(args)):
+                if i >= len(attrs):
+                    return
+                setattr(self, attrs[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """ Return Dicitonary represent to square """
+
+        my_dict = {}
+        attrs = ["id", "x", "size", "y"]
+        for i in attrs:
+            my_dict[i] = getattr(self, i)
+        return my_dict

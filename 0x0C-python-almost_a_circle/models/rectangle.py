@@ -96,13 +96,13 @@ class Rectangle(Base):
         for a in range(self.height):
             print(' ' * self.x, end="")
             print('#' * self.width)
-        
 
     def __str__(self):
         """Method that returns string representation of rectangle"""
+
         h, i, j = self.id, self.width, self.height
-        k, l = self.x, self.y
-        return("[Rectangle] ({}) {}/{} - {}/{}".format(h, k, l, i, j))
+        var_k, var_l = self.x, self.y
+        return("[Rectangle] ({}) {}/{} - {}/{}".format(h, var_k, var_l, i, j))
 
     def update(self, *args, **kwargs):
         """ Method for update attributes """
@@ -115,4 +115,12 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
- 
+
+    def to_dictionary(self):
+        """ Return Dicitonary represent to rectangle """
+
+        my_dict = {}
+        attrs = ["x", "y", "id", "height","width"]
+        for i in attrs:
+            my_dict[i] = getattr(self, i)
+        return my_dict
