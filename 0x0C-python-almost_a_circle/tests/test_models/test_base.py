@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ unit test for file base.py """
-import json
 import unittest
+import json
 from models.base import Base
 from models.rectangle import Rectangle
 
