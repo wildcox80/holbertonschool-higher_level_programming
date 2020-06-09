@@ -24,6 +24,38 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def area(self):
+        """Return area of the rectangle"""
+
+        return self.width * self.height
+
+    def display(self):
+        """Print stdout of the rectangle"""
+        a = 0
+        print('\n' * self.y, end="")
+        for a in range(self.height):
+            print(' ' * self.x, end="")
+            print('#' * self.width)
+
+    def __str__(self):
+        """Method that returns string representation of rectangle"""
+
+        h, i, j = self.id, self.width, self.height
+        var_k, var_l = self.x, self.y
+        return("[Rectangle] ({}) {}/{} - {}/{}".format(h, var_k, var_l, i, j))
+
+    def update(self, *args, **kwargs):
+        """ Method for update attributes """
+        if args and len(args) != 0:
+            attrs = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                if i >= len(attrs):
+                    return
+                setattr(self, attrs[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
     @property
     def width(self):
         """ getter method for width """
@@ -84,43 +116,11 @@ class Rectangle(Base):
         else:
             self.__y = value
 
-    def area(self):
-        """Return area of the rectangle"""
-
-        return self.width * self.height
-
-    def display(self):
-        """Print stdout of the rectangle"""
-        a = 0
-        print('\n' * self.y, end="")
-        for a in range(self.height):
-            print(' ' * self.x, end="")
-            print('#' * self.width)
-
-    def __str__(self):
-        """Method that returns string representation of rectangle"""
-
-        h, i, j = self.id, self.width, self.height
-        var_k, var_l = self.x, self.y
-        return("[Rectangle] ({}) {}/{} - {}/{}".format(h, var_k, var_l, i, j))
-
-    def update(self, *args, **kwargs):
-        """ Method for update attributes """
-        if args and len(args) != 0:
-            attrs = ["id", "width", "height", "x", "y"]
-            for i in range(len(args)):
-                if i >= len(attrs):
-                    return
-                setattr(self, attrs[i], args[i])
-        else:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
-
     def to_dictionary(self):
         """ Return Dicitonary represent to rectangle """
 
         my_dict = {}
-        attrs = ["x", "y", "id", "height","width"]
+        attrs = ["x", "y", "id", "height", "width"]
         for i in attrs:
             my_dict[i] = getattr(self, i)
         return my_dict
