@@ -25,6 +25,29 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}"\
             .format(self.id, self.x, self.y, self.width, self.height)
 
+    def area(self):
+        """Return areae of rectangle"""
+        return self.height * self.width
+
+    def display(self):
+        """Print to stdout the rectangle using #"""
+        rectangle = "\n" * self.y
+        line = " " * self.x + "#" * self.width + "\n"
+        rectangle += (line) * self.height
+        print(rectangle, end="")
+
+    def update(self, *args, **kwargs):
+        """Updates no keyword arguments first, then keyword arguments"""
+        if args and len(args) != 0:
+            attrs = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                if i >= len(attrs):
+                    return
+                setattr(self, attrs[i], args[i])
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
+
     @property
     def width(self):
         """Property width: width of rectangle
@@ -105,29 +128,6 @@ class Rectangle(Base):
     #         raise ValueError("{} must be > 0".format(name))
     #     if (name == "x" or name == "y") and value < 0:
     #         raise ValueError("{} must be >= 0".format(name))
-
-    def area(self):
-        """Return areae of rectangle"""
-        return self.height * self.width
-
-    def display(self):
-        """Print to stdout the rectangle using #"""
-        rectangle = "\n" * self.y
-        line = " " * self.x + "#" * self.width + "\n"
-        rectangle += (line) * self.height
-        print(rectangle, end="")
-
-    def update(self, *args, **kwargs):
-        """Updates no keyword arguments first, then keyword arguments"""
-        if args and len(args) != 0:
-            attrs = ["id", "width", "height", "x", "y"]
-            for i in range(len(args)):
-                if i >= len(attrs):
-                    return
-                setattr(self, attrs[i], args[i])
-        else:
-            for k, v in kwargs.items():
-                setattr(self, k, v)
 
     def to_dictionary(self):
         """Return dictionary representation of a Rectangle"""
