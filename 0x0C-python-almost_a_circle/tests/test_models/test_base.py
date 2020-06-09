@@ -2,10 +2,13 @@
 """ unit test for file base.py """
 import unittest
 import pep8
-import json
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+import sys
+from io import StringIO
+import json
+import os
 
 
 class TestBaseClass(unittest.TestCase):
@@ -102,10 +105,24 @@ class TestBaseClass(unittest.TestCase):
         b1 = Base([1])
         self.assertEqual(b1.id, [1])
 
-    def test_to_json_string_empty(self):
-        """Test inherited test_to_json_string() with empty list and None"""
-        self.assertEqual(Base.to_json_string([]), '[]')
-        self.assertEqual(Base.to_json_string(None), '[]')
+    def test_6_from_json_string(self):
+        """
+        Test to check from json to string
+        conversion
+        """
+        s = '[{"id": 9, "width": 10, "height": 11, "x": 12, "y": 13}, \
+        {"id": 10, "width": 12, "height": 14, "x": 16, "y": 18}]'
+        js = Base.from_json_string(s)
+        self.assertTrue(type(js) is list)
+        self.assertEqual(len(js), 2)
+
+    def test_7_from_json_string_empty(self):
+        """
+        Test to check if it works with
+        empty string or none
+        """
+        self.assertEqual(Base.from_json_string(""), [])
+        self.assertEqual(Base.from_json_string(None), [])
 
     def test_save_to_file_none(self):
         """Test save_to_file() with None"""
