@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    2-rectangle.py: Model class Rectangle that inherits from Base
+    square.py: Model class Square that inherits from Rectangle
     Wilder Rincon : 1588@holbertonschool.com
 """
 from models.rectangle import Rectangle
