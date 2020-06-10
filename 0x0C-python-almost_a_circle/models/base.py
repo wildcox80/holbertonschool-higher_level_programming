@@ -5,6 +5,7 @@
 """
 from random import random
 import json
+import csv
 
 
 class Base:
@@ -82,5 +83,47 @@ class Base:
                 objs = Base.from_json_string(f.read())
                 instances = [cls.create(**obj) for obj in objs]
                 return instances
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Writes a representations of objects in list to CSV file
+        Description"
+            Write CSV representation of objects in list_objs to file
+            <Class name>.csv
+            Parameter:
+                list_objs: list of objects
+        """
+        if cls.__name__ == "Rectangle":
+            attrs = ['id', 'width', 'height', 'x', 'y']
+        else:
+            attrs = ['id', 'size', 'x', 'y']
+        filename = "{}.csv".format(cls.__name__)
+        with open(filename, 'w', newline='') as csvf:
+            if list_objs is not None:
+                writer = csv.DictWriter(csvf, fieldnames=attrs)
+                writer.writeheader()
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+            else:
+                writer = csv.writer(csvf)
+                writer.writerow([[]])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Return list of instances from file
+        filename is <Class name>.csv
+        """
+        try:
+            filename = "{}.csv".format(cls.__name__)
+            with open(filename, newline='') as csvf:
+                reader = csv.DictReader(csvf)
+                obj_list = []
+                for row in reader:
+                    for k, v in row.items():
+                        row[k] = int(v)
+                    obj_list.append(row)
+                return [cls.create(**obj) for obj in obj_list]
         except FileNotFoundError:
             return []
