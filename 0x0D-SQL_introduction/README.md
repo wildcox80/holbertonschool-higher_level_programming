@@ -1,5 +1,5 @@
 <h1 align="center">0x0D-SQL_introduction</h1>
-<p align="center"> <img src = "https://s3-us-west-2.amazonaws.com/devcodepro/media/blog/que-es-sql.png /></p>
+<p align="center"> <img src = "https://s3-us-west-2.amazonaws.com/devcodepro/media/blog/que-es-sql.png/></p>
 
 <!-- PROJECT SHIELDS -->
 <!--
