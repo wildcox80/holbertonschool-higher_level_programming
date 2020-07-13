@@ -1,5 +1,5 @@
 <h1 align="center">0x0D-SQL_introduction</h1>
-<p align="center"> <img src = "https://i.imgur.com/Kw6nfhY.png /></p>
+<p align="center"> <img src ="https://i.imgur.com/Kw6nfhY.png /></p>
 
 <!-- PROJECT SHIELDS -->
 <!--
