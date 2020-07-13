@@ -1,3 +1,2 @@
-#!/bin/bash/env mysql
 -- Create new Database
 CREATE DATABASE IF NOT EXISTS hbtn_0c_0;

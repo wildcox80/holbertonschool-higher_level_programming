@@ -1,4 +1,3 @@
-#!/bin/bash/env mysql
 -- Create a new table in given database and adds multiple rows
 -- id INT, name VARCHAR(256), score INT
 -- new entries:
