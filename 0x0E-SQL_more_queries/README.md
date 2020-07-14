@@ -160,7 +160,7 @@ id  name
 $
 ```
 
-![Imgur](https://i.imgur.com/h2uFXyJ.png)
+<p align="center"> <img src="https://i.imgur.com/h2uFXyJ.png" width="500px" height="500px"/></p>
 
 
 ## Task :notebook:
