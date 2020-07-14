@@ -160,7 +160,7 @@ id  name
 $
 ```
 
-<p align="center"> <img src="https://i.imgur.com/h2uFXyJ.png" width="500px" height="500px"/></p>
+<p align="center"> <img src="https://i.imgur.com/h2uFXyJ.png" width="600px" height="600px"/></p>
 
 
 ## Task :notebook:
