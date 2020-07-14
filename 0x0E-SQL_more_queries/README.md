@@ -160,7 +160,7 @@ id  name
 $
 ```
 
-<p align="center"> <img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2020/3/bc2575fee3303b731031.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200714%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200714T140842Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=25e63418ba2525e663406ce1dbf94370331ffb72ac2ed87d324dfee1071f15b8" /></p>
+![Imgur](https://i.imgur.com/h2uFXyJ.png)
 
 
 ## Task :notebook:
