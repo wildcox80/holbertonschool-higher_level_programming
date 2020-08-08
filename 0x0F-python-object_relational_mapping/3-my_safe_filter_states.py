@@ -28,13 +28,14 @@ if __name__ == "__main__":
     c = db.cursor()
 
     # Executing query
-    c.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id\
-    ASC".format(argv[4]))
+    c.execute("SELECT * FROM states WHERE name=%s ORDER BY id\
+    ASC".format(name))
     query_rows = c.fetchall()
 
     # Fetching data
     for row in query_rows:
-        print(row)
+        if row[1] == name:
+            print(row)
 
     # Close cursor
     c.close()
