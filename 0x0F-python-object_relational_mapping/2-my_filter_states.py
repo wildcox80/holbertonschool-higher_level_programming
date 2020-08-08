@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" lists all states with a name starting with N """
+""" takes an argument and displays all values states table of hbtn_0e_0_usa """
 
 from sys import argv
 import MySQLdb
