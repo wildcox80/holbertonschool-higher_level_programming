@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     # Executing query
     c.execute("SELECT * FROM states WHERE name=%s ORDER BY id\
-    ASC".format(name))
+    ASC",(name,))
     query_rows = c.fetchall()
 
     # Fetching data
