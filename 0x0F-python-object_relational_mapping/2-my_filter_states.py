@@ -12,6 +12,8 @@ if __name__ == "__main__":
     passwd = argv[2]
     db = argv[3]
     name = argv[4]
+    query = "SELECT * FROM states WHERE name='{}' ORDER BY id ASC".format(name)
+
 
     # Connecting to MySQL database
 
@@ -28,8 +30,8 @@ if __name__ == "__main__":
     c = db.cursor()
 
     # Executing query
-    "SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY id\
-    ASC".format(argv[4])
+    c.execute("SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY id\
+    ASC".format(argv[4]))
     query_rows = c.fetchall()
 
     # Fetching data
