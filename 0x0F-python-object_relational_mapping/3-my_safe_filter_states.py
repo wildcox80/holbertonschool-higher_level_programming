@@ -34,8 +34,7 @@ if __name__ == "__main__":
 
     # Fetching data
     for row in query_rows:
-        if row[1] == argv[4]:
-            print(row)
+        print(row)
 
     # Close cursor
     c.close()
