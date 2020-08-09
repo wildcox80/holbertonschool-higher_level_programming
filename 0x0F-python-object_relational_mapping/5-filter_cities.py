@@ -4,40 +4,30 @@
 from sys import argv
 import MySQLdb
 
+if __name__ == '__main__':
 
-if __name__ == "__main__":
-
-    # declaring arguments passed.
+    # declaring arguments passed, with query.
     user = argv[1]
     passwd = argv[2]
     db = argv[3]
     name = argv[4]
+    query = """SELECT cities.name
+FROM states INNER JOIN cities ON states.id = cities.state_id
+WHERE states.name=%s ORDER BY cities.id ASC"""
 
-    # Connecting to MySQL database
+    # creating connection to the database.
+    db_connection = MySQLdb.connect(host="localhost", port=3306, user=user,
+                                    passwd=passwd, db=db, charset="utf8")
 
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=argv[1],
-        passwd=argv[2],
-        db=argv[3],
-        charset="utf8"
-    )
+    # Making a cursor Object for query execution.
+    cursor = db_connection.cursor()
 
-    # Making cursor
-    c = db.cursor()
+    # Executing query.
+    cursor.execute(query, (name,))
+    query_rows = cursor.fetchall()
 
-    # Executing query
-    c.execute("SELECT cities.name\
-    FROM states INNER JOIN cities ON states.id = cities.state_id\
-    WHERE states.name=%s ORDER BY cities.id ASC")
-    query_rows = c.fetchall()
-
-    # Fetching data
+    # Printing DATABASE
     print(", ".join([row[0] for row in query_rows]))
 
-    # Close cursor
-    c.close()
-
-    # Close connection database
-    db.close()
+    cursor.close()
+    db_connection.close()
