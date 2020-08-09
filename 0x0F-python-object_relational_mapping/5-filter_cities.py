@@ -10,19 +10,26 @@ if __name__ == '__main__':
     user = argv[1]
     passwd = argv[2]
     db = argv[3]
-    name = argv[4]    
+    name = argv[4]
+    query = """SELECT cities.name
+    FROM states INNER JOIN cities ON states.id = cities.state_id
+    WHERE states.name=%s ORDER BY cities.id ASC"""
 
     # creating connection to the database.
-    db = MySQLdb.connect(host="localhost", port=3306, user=user,
-                                    passwd=passwd, db=db, charset="utf8")
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=argv[1],
+        passwd=argv[2],
+        db=argv[3],
+        charset="utf8"
+    )
 
     # Making a cursor Object for query execution.
     c = db.cursor()
 
     # Executing query.
-    cursor.execute("SELECT cities.name\
-    FROM states INNER JOIN cities ON states.id = cities.state_id\
-    WHERE states.name=%s ORDER BY cities.id ASC", (name,))
+    cursor.execute(query, (name,))
     query_rows = cursor.fetchall()
 
     # Printing DATABASE
