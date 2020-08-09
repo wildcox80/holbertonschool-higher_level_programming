@@ -29,7 +29,7 @@ if __name__ == '__main__':
     c = db.cursor()
 
     # Executing query.
-    cursor.execute(query, (name,))
+    c.execute(query, (name,))
     query_rows = cursor.fetchall()
 
     # Printing DATABASE
