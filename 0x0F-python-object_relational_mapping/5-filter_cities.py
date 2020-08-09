@@ -28,8 +28,8 @@ if __name__ == "__main__":
     c = db.cursor()
 
     # Executing query
-    c.execute("SELECT cities.name FROM states INNER JOIN cities ON states.id\
-    = cities.state_id WHERE states.name=%s ORDER BY cities.id ASC")
+    c.execute("SELECT cities.name FROM states INNER JOIN cities ON\
+    states.id = cities.state_id WHERE states.name=%s ORDER BY cities.id ASC")
     query_rows = c.fetchall()
 
     # Fetching data
