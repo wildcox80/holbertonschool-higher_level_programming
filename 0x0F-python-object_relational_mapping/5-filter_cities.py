@@ -30,7 +30,7 @@ WHERE states.name=%s ORDER BY cities.id ASC"""
 
     # Executing query.
     c.execute(query, (name,))
-    query_rows = cursor.fetchall()
+    query_rows = c.fetchall()
 
     # Printing DATABASE
     print(", ".join([row[0] for row in query_rows]))
