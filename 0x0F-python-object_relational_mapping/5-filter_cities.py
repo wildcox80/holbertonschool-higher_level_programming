@@ -12,8 +12,8 @@ if __name__ == '__main__':
     db = argv[3]
     name = argv[4]
     query = """SELECT cities.name
-    FROM states INNER JOIN cities ON states.id = cities.state_id
-    WHERE states.name=%s ORDER BY cities.id ASC"""
+FROM states INNER JOIN cities ON states.id = cities.state_id
+WHERE states.name=%s ORDER BY cities.id ASC"""
 
     # creating connection to the database.
     db = MySQLdb.connect(
