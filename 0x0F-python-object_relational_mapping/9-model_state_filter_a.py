@@ -13,8 +13,8 @@ if __name__ == '__main__':
 
     Base.metadata.create_all(engine)
 
-    # Creating a session.
-    session = Session()
+    # Creating an instance.
+    session = Session(engine)
 
     # reading all State object.
     all_states = session.query(State).order_by(State.id)
@@ -23,6 +23,5 @@ if __name__ == '__main__':
     for state in all_states:
         if "a" in state.name:
             print("{}: {}".format(state.id, state.name))
-
-    # close session
+            
     session.close()
