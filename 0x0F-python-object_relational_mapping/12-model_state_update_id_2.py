@@ -13,11 +13,17 @@ if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
         sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
 
-    Base.metadata.create_all(eng)
-    Session = sessionmaker(bind=eng)
+    Base.metadata.create_all(engine)
+
+    # Creating a configured "Session" class.
+    Session = sessionmaker(bind=engine)
+
+    # create a Session.
     session = Session()
-    state = session.query(State).filter_by(id=2).first()
-    state.name = "New Mexico"
+
+    # selecting state by id.
+    state_select = session.query(State).filter_by(id=2).first()
+    state_select.name = "New Mexico"
     session.commit()
 
     session.close()
