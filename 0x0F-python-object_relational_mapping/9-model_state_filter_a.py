@@ -14,15 +14,13 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
 
     # Creating a session.
+    Session = sessionmaker(bind=engine)
     session = Session()
 
-    # reading all State object.
-    all_states = session.query(State).order_by(State.id)
-
     # printing from database.
-    for state in all_states:
-        if "a" in state.name:
-            print("{}: {}".format(state.id, state.name))
+    for item in session.query(State).filter(State.name.like('%a%'))\
+        .order_by(State.id):
+        print("{}: {}".format(item.id, item.name))
 
     # close session
     session.close()
