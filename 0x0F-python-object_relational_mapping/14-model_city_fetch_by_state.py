@@ -20,9 +20,8 @@ if __name__ == '__main__':
     session = Session()
 
     # defining a query:
-    query = session.query(City, State) \
-                   .filter(City.state_id == State.id) \
-                   .order_by(City.id)
+    query = session.query(City, State).filter(City.state_id == State.id)\
+                                      .order_by(City.id)
 
     # printing according to the format.
     for city, state in query:
