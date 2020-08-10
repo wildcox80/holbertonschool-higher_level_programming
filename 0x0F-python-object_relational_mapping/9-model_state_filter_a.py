@@ -17,10 +17,10 @@ if __name__ == '__main__':
     session = Session()
 
     # reading all State object.
-    show_states = session.query(State).order_by(State.id)
+    all_states = session.query(State).order_by(State.id)
 
     # printing from database.
-    for state in show_states:
+    for state in all_states:
         if "a" in state.name:
             print("{}: {}".format(state.id, state.name))
 
