@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Peak exercise"""
+
+
 def find_peak(list_of_integers):
     """Finds peak in unsorted list of integers"""
 
