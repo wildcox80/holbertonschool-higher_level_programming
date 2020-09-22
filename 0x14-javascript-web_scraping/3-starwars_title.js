@@ -1,7 +1,7 @@
 #!/usr/bin/node
 // prints the title of a Star Wars movie
 const request = require('request');
-request(`http://swapi.co/api/films/${process.argv[2]}`, function (error, body) {
+request(`http://swapi.co/api/films/${process.argv[2]}`, function (error, response, body) {
   error && console.log(error);
   console.log(JSON.parse(body).title);
 });
