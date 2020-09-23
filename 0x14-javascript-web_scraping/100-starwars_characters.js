@@ -1,9 +1,8 @@
 #!/usr/bin/node
-// retrieves all character names in SW film
 const request = require('request');
 const BASE = 'https://swapi-api.hbtn.io/api/';
 const filmId = 'films/' + process.argv[2];
-request((BASE + filmId, { json: true }, (err, res, body) => {
+request(BASE + filmId, { json: true }, (err, res, body) => {
   if (err) return console.log(err);
 
   body.characters.forEach(e => {
