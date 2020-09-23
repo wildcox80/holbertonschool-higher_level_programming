@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 // retrieves all character names in SW film
 const request = require('request');
 const FILM_URL = `http://swapi.co/api/films/${process.argv[2]}`;
